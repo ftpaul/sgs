@@ -20,7 +20,15 @@
       
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-      <li><%= button_to "Criar Curso",  root_path, class: "btn navbar-btn btn-primary", :method => :get %></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Sócios <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="divider"></li>
+          
+        </ul>
+      </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           Cursos <b class="caret"></b>
@@ -32,11 +40,11 @@
       </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Sócios <b class="caret"></b>
+          Ano Lectivo <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-          <li class="divider"></li>
-          
+          <li><%= link_to "Visualizar", ano_lectivos_path %></li>
+          <li><%= link_to "Alterar", new_ano_lectivo_path %></li>
         </ul>
       </li>
       <li><%= link_to "Sair", logout_path %></li>

@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+AnoLectivo.create(ano_lectivo: "2012/2013") 
+
 User.create(username: 'ftpaul', password: 'senha')
 
 Curso.create(id: 19, designacao: "ERASMUS")

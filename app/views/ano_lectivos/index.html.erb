@@ -1,23 +1,11 @@
-<h1>Listing ano_lectivos</h1>
 
-<table>
-  <tr>
-    <th>Ano lectivo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="some_information">
+<p>
+  <b>Ano lectivo:</b>
+  <big><%= @ano_lectivos.ano_lectivo %></big>
+</p>
+</div>
+	
 
-<% @ano_lectivos.each do |ano_lectivo| %>
-  <tr>
-    <td><%= ano_lectivo.ano_lectivo %></td>
-    <td><%= link_to 'Show', ano_lectivo %></td>
-    <td><%= link_to 'Edit', edit_ano_lectivo_path(ano_lectivo) %></td>
-    <td><%= link_to 'Destroy', ano_lectivo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Ano lectivo', new_ano_lectivo_path %>
