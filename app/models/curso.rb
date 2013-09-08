@@ -9,5 +9,5 @@
 #
 
 class Curso < ActiveRecord::Base
-  attr_accessible :designacao
+  attr_accessible :designacao, :id
 end

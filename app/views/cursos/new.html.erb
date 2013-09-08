@@ -1,5 +1,23 @@
-<h1>New curso</h1>
 
-<%= render 'form' %>
+<%= form_for(@curso, :class => 'form-signin') do |f| %>
+<h2 class="form-signin-heading">Novo Curso</h2>
+	<% if @curso.errors.any? %>
+	<div id="error_explanation">
+	  <h2><%= pluralize(@curso.errors.count, "error") %> prohibited this curso from being saved:</h2>
 
-<%= link_to 'Back', cursos_path %>
+	  <ul>
+	  <% @curso.errors.full_messages.each do |msg| %>
+	    <li><%= msg %></li>
+	  <% end %>
+	  </ul>
+	</div>
+	<% end %>
+
+    <%= f.text_field :designacao, :class => "form-control", :placeholder => "designação", :autofocus => true %>
+    <%= f.submit 'Criar Curso', :class => 'btn btn-lg btn-primary btn-block' %>
+    <br>
+    <small><%= link_to 'Cancelar', cursos_path %></small>
+
+<% end %>
+
+
