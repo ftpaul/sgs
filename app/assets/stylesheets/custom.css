@@ -1,3 +1,28 @@
+html,
+body {
+  height: 100%;
+}
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -30px;
+  padding: 0 0 30px;
+}
+#footer {
+  height: 30px;
+  background-color: #f5f5f5;
+}
+#wrap > .container {
+  padding: 30px 15px 0;
+}
+.container .credit {
+  margin: 6px 0;
+}
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .some_information, .new_ano_lectivo, .new_curso, .form-signin {
 	max-width: 330px;
 	padding: 15px;
