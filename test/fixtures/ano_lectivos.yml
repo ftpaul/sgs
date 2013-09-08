@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: ano_lectivos
+#
+#  id          :integer          not null, primary key
+#  ano_lectivo :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ano_lectivo: MyString
+
+two:
+  ano_lectivo: MyString

@@ -1,5 +1,11 @@
 Sgs::Application.routes.draw do
 
+  resources :cursos
+
+
+  resources :ano_lectivos
+
+
   root :to => "sessions#new"
 
   get "logout" => "sessions#destroy", :as => "logout"
