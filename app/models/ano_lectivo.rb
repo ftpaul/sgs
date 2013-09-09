@@ -10,4 +10,8 @@
 
 class AnoLectivo < ActiveRecord::Base
   attr_accessible :ano_lectivo
+  has_many :socios
+  
+  validates :ano_lectivo, presence: true
+  
 end

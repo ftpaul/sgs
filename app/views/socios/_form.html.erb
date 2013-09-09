@@ -1,0 +1,77 @@
+<%= form_for(@socio) do |f| %>
+  <% if @socio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@socio.errors.count, "error") %> prohibited this socio from being saved:</h2>
+
+      <ul>
+      <% @socio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :num_aluno %><br />
+    <%= f.number_field :num_aluno, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :curso_id %><br />
+    <%= f.collection_select :curso_id, Curso.order(:designacao), :id, :designacao, include_blank: false, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :morada %><br />
+    <%= f.text_field :morada, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cod_postal %><br />
+    <%= f.text_field :cod_postal, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :localidade %><br />
+    <%= f.text_field :localidade, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :telemovel %><br />
+    <%= f.text_field :telemovel, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nascimento %><br />
+    <%= f.date_select :nascimento, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :bi %><br />
+    <%= f.text_field :bi, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :foto %><br />
+    <%= f.file_field :foto, :class => "form-control" %>
+  </div>
+  <div class="checkbox">
+    <label>
+    <%= f.check_box :newsletter %> newsletter
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+    <%= f.check_box :entidades %> entidades
+    </label>
+  </div>
+  <div class="form-group">
+    <%= f.label :ano_lectivo_id %><br />
+    <%= f.collection_select :ano_lectivo_id, AnoLectivo.order(:created_at).limit(1), :id, :ano_lectivo, include_blank: false, :class => "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Submeter', :class => 'btn btn-lg btn-primary btn-block'%>
+  </div>
+  <br />
+  <small><%= link_to 'Cancelar', socios_path %></small>
+<% end %>

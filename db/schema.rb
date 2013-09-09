@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130908172739) do
+ActiveRecord::Schema.define(:version => 20130908194211) do
 
   create_table "ano_lectivos", :force => true do |t|
     t.string   "ano_lectivo"
@@ -23,6 +23,25 @@ ActiveRecord::Schema.define(:version => 20130908172739) do
     t.string   "designacao"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "socios", :force => true do |t|
+    t.integer  "num_aluno"
+    t.string   "nome"
+    t.string   "morada"
+    t.string   "cod_postal"
+    t.string   "localidade"
+    t.string   "telemovel"
+    t.date     "nascimento"
+    t.string   "email"
+    t.string   "bi"
+    t.string   "foto"
+    t.boolean  "newsletter"
+    t.boolean  "entidades"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "curso_id"
+    t.integer  "ano_lectivo_id"
   end
 
   create_table "users", :force => true do |t|

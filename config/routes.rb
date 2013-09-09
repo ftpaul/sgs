@@ -1,5 +1,8 @@
 Sgs::Application.routes.draw do
 
+  resources :socios
+
+
   resources :cursos
   resources :ano_lectivos
 

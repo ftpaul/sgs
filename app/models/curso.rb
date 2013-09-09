@@ -10,4 +10,8 @@
 
 class Curso < ActiveRecord::Base
   attr_accessible :designacao, :id
+  has_many :socios
+
+  validates :designacao, presence: true
+  
 end

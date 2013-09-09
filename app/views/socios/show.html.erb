@@ -1,0 +1,79 @@
+<div class="show_socio">
+
+<p>
+  <b>Num aluno:</b>
+  <%= @socio.num_aluno %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @socio.nome %>
+</p>
+
+<p>
+  <b>Curso:</b>
+  <%= Curso.find(@socio.curso_id).designacao %>
+  <%= @socio.curso_id %>
+</p>
+
+<p>
+  <b>Morada:</b>
+  <%= @socio.morada %>
+</p>
+
+<p>
+  <b>Cod postal:</b>
+  <%= @socio.cod_postal %>
+</p>
+
+<p>
+  <b>Localidade:</b>
+  <%= @socio.localidade %>
+</p>
+
+<p>
+  <b>Telemovel:</b>
+  <%= @socio.telemovel %>
+</p>
+
+<p>
+  <b>Nascimento:</b>
+  <%= @socio.nascimento %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @socio.email %>
+</p>
+
+<p>
+  <b>BI/CC:</b>
+  <%= @socio.bi %>
+</p>
+
+<p>
+  <b>Foto:</b>
+  <%= image_tag @socio.foto_url(:thumb) if @socio.foto? %>
+</p>
+
+<p>
+  <b>Newsletter:</b>
+  <%= @socio.newsletter %>
+</p>
+
+<p>
+  <b>Entidades:</b>
+  <%= @socio.entidades %>
+</p>
+
+<p>
+  <b>Ano Lectivo:</b>
+  <big><%= AnoLectivo.find(@socio.ano_lectivo_id).ano_lectivo %></big>
+</p>
+
+<small>
+<%= link_to 'Editar', edit_socio_path(@socio) %> |
+<%= link_to 'Voltar', socios_path %>
+</small>
+
+</div>
