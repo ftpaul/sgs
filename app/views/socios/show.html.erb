@@ -71,6 +71,13 @@
   <big><%= AnoLectivo.find(@socio.ano_lectivo_id).ano_lectivo %></big>
 </p>
 
+<% if @socio.ano_lectivo_id != AnoLectivo.last(1)[0].id %>
+<%= form_for(@socio) do |f| %>
+  <%= f.hidden_field :ano_lectivo_id, :value => AnoLectivo.last(1)[0].id, :class => "form-control" %>
+  <%= f.submit 'Renovar', :class => 'btn btn-lg btn-warning btn-block'%>
+<% end %>
+<% end %>
+
 <small>
 <%= link_to 'Editar', edit_socio_path(@socio) %> |
 <%= link_to 'Voltar', socios_path %>

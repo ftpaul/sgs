@@ -13,11 +13,6 @@ class AnoLectivosController < ApplicationController
 
   def new
     @ano_lectivo = AnoLectivo.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @ano_lectivo }
-    end
   end
 
   def create
@@ -25,7 +20,7 @@ class AnoLectivosController < ApplicationController
 
     respond_to do |format|
       if @ano_lectivo.save
-        format.html { redirect_to @ano_lectivo, notice: 'Ano lectivo was successfully created.' }
+        format.html { redirect_to @root_path, notice: 'Ano lectivo was successfully created.' }
         format.json { render json: @ano_lectivo, status: :created, location: @ano_lectivo }
       else
         format.html { render action: "new" }
