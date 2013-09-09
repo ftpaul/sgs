@@ -3,12 +3,8 @@ class SociosController < ApplicationController
   before_filter :correct_user
 
   def index
-    @socios = Socio.all
-
-    respond_to do |format|
-      format.html 
-      format.json { render json: @socios }
-    end
+    @search = Socio.search(params[:q])
+    @socios = @search.result
   end
 
   def show
@@ -69,6 +65,11 @@ class SociosController < ApplicationController
       format.html { redirect_to socios_url }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    Socio.import(params[:file])
+    redirect_to socios_path, notice: "Socios imported."
   end
 
   private

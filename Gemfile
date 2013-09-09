@@ -9,6 +9,10 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rmagick'
 gem 'carrierwave'
 
+gem 'roo'
+
+gem 'ransack'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

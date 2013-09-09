@@ -36,4 +36,16 @@ class Socio < ActiveRecord::Base
   validates :nome, presence: true
   validates :email, presence: true
 
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      socio = find_by_id(row["nAluno"]) || new
+      socio.attributes = row.to_hash.slice(*accessible_attributes)
+      socio.num_aluno = row["nAluno"]
+      socio.ano_lectivo_id = 1
+      socio.curso_id = row["curso"]
+      socio.foto.store!(File.open(File.join("http://127.0.0.1:3000/uploads/socio/foto/#{row["foto"]}")))
+      socio.save!
+    end
+  end
+
 end

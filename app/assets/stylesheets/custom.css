@@ -23,7 +23,7 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
-.show_socio, .edit_socio, .new_socio, .some_information, .new_ano_lectivo, .new_curso, .form-signin {
+.import_socios, .socio_search, .show_socio, .edit_socio, .new_socio, .some_information, .new_ano_lectivo, .new_curso, .form-signin {
 	max-width: 330px;
 	padding: 15px;
 	margin: 0 auto;
