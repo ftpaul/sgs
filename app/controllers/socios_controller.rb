@@ -4,7 +4,7 @@ class SociosController < ApplicationController
 
   def index
     @search = Socio.search(params[:q])
-    @socios = @search.result
+    @socios = @search.result if params[:q]
   end
 
   def show
@@ -67,9 +67,14 @@ class SociosController < ApplicationController
     end
   end
 
+  def addfile
+  end
+
   def import
-    Socio.import(params[:file])
-    redirect_to socios_path, notice: "Socios imported."
+    if (params[:file])
+      Socio.import(params[:file])
+      redirect_to socios_path, notice: "Socios imported."
+    end
   end
 
   private

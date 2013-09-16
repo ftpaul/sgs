@@ -52,18 +52,23 @@
 </p>
 
 <p>
+  <b>Estado civil:</b>
+  <%= @socio.estado_civil %>
+</p>
+
+<p>
   <b>Foto:</b>
   <%= image_tag @socio.foto_url(:thumb) if @socio.foto? %>
 </p>
 
 <p>
-  <b>Newsletter:</b>
-  <%= @socio.newsletter %>
+  <b>Aceita receber informação via email:</b>
+  <%= @socio.permite_email %>
 </p>
 
 <p>
-  <b>Entidades:</b>
-  <%= @socio.entidades %>
+  <b>Aceita receber informação via sms:</b>
+  <%= @socio.permite_sms %>
 </p>
 
 <p>
@@ -73,6 +78,33 @@
 
 <% if @socio.ano_lectivo_id != AnoLectivo.last(1)[0].id %>
 <%= form_for(@socio) do |f| %>
+  <h3>Renovação</h3>
+  <% if @socio.telemovel.nil? %>
+  <div class="form-group">
+    <%= f.label :telemovel %><br />
+    <%= f.text_field :telemovel, :class => "form-control" %>
+  </div>
+  <% end %>
+  <% if @socio.estado_civil.nil? %>
+  <div class="form-group">
+    <%= f.label :estado_civil %><br />
+    <%= f.text_field :estado_civil, :class => "form-control" %>
+  </div>
+  <% end %>
+  <% if @socio.permite_email.nil? %>
+  <div class="checkbox">
+    <label>
+    <%= f.check_box :permite_email %> Aceita receber informação via email
+    </label>
+  </div>
+  <% end %>
+  <% if @socio.permite_email.nil? %>
+  <div class="checkbox">
+    <label>
+    <%= f.check_box :permite_sms %> Aceita receber informação via sms
+    </label>
+  </div>
+  <% end %>
   <%= f.hidden_field :ano_lectivo_id, :value => AnoLectivo.last(1)[0].id, :class => "form-control" %>
   <%= f.submit 'Renovar', :class => 'btn btn-lg btn-warning btn-block'%>
 <% end %>

@@ -1,12 +1,13 @@
-<h2>Listar Sócios</h2>
 
 <%= search_form_for @search, url: search_socios_path, method: :post do |f| %>
-    <big>Filtrar:</big>
+    <h2 class="form-signin-heading">Search</h2>
     <%= f.text_field :num_aluno_eq, :class => "form-control input-sm", :placeholder => "número de aluno" %>  
     <%= f.text_field :nome_cont, :class => "form-control input-sm", :placeholder => "nome parcial" %>
     <%= f.submit "Search", :class => 'btn btn-primary btn-block input-sm' %>
 
 <% end %>
+
+<% if !@socios.nil? %>
 
 <table class="table table-condensed">
   <tr>
@@ -15,31 +16,23 @@
     <th>Morada</th>
     <th>Telemovel</th>
     <th>Email</th>
-    <th>Newsletter</th>
-    <th>Entidades</th>
     <th></th>
   </tr>
 
 <% @socios.each do |socio| %>
   <tr>
     <td><%= socio.num_aluno %></td>
-    <td><%= socio.nome %></td>
+    <td><%= link_to socio.nome, socio %></td>
     <td><%= socio.morada %></td>
     <td><%= socio.telemovel %></td>
     <td><%= socio.email %></td>
-    <td><%= socio.newsletter %></td>
-    <td><%= socio.entidades %></td>
-    <td><small><%= link_to 'Show', socio %> | <%= link_to 'Edit', edit_socio_path(socio) %></small></td>
+    <td><small>
+    <%= link_to 'Show', socio %>
+    <%= link_to 'Edit', edit_socio_path(socio) %>
+    </small></td>
   </tr>
 <% end %>
+
 </table>
 
-<br /><br />
-
-<%= form_tag import_socios_path, multipart: true, :class => "import_socios" do %>
-  <h5>Import Products</h5>
-  <%= file_field_tag :file, :class => "form-control input-sm" %>
-  <%= submit_tag "Import", :class => 'btn btn-primary btn-block input-sm' %>
 <% end %>
-
-<br /><br />

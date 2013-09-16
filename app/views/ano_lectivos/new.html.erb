@@ -1,6 +1,7 @@
 <%= form_for(@ano_lectivo) do |f| %>
 <h2 class="form-signin-heading">Alterar Ano Lectivo</h2>
-<div class="alert alert-danger"><b>Atenção!</b> Só alterar esta opção no inicio de cada ano! Pode provocar a destruição do mundo</div>
+<div class="alert alert-danger"><b>Atenção!</b> Só alterar esta opção no inicio de cada ano!</div>
+<div class="alert alert-warning"><b>Atenção!</b> Colocar no formato AAAA/AAAA!</div>
   <% if @ano_lectivo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ano_lectivo.errors.count, "error") %> prohibited this ano_lectivo from being saved:</h2>

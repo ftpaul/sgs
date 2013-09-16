@@ -1,0 +1,5 @@
+<%= form_tag import_socios_path, multipart: true, :class => "import_socios" do %>
+  <h2 class="form-signin-heading">Importar Sócios</h2>
+  <%= file_field_tag :file, :class => "form-control input-sm" %>
+  <%= submit_tag "Import", :class => 'btn btn-primary btn-block input-sm' %>
+<% end %>

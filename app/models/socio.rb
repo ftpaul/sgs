@@ -13,17 +13,18 @@
 #  email          :string(255)
 #  bi             :string(255)
 #  foto           :string(255)
-#  newsletter     :boolean
-#  entidades      :boolean
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  curso_id       :integer
 #  ano_lectivo_id :integer
+#  permite_email  :boolean
+#  permite_sms    :boolean
+#  estado_civil   :boolean
 #
 
 class Socio < ActiveRecord::Base
-  attr_accessible :bi, :cod_postal, :email, :entidades, :foto, :localidade, :morada, :nascimento, :newsletter, :nome, 
-  						:num_aluno, :telemovel, :curso_id, :ano_lectivo_id
+  attr_accessible :bi, :cod_postal, :email, :permite_sms, :foto, :localidade, :morada, :nascimento, :permite_email, 
+              :nome, :num_aluno, :telemovel, :curso_id, :ano_lectivo_id
 
   has_one :curso
   has_one :ano_lectivo
