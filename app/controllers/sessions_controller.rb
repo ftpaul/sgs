@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+	
+	before_filter :correct_user, only: :new
+
 	def new
 	end
 
@@ -17,4 +20,9 @@ class SessionsController < ApplicationController
 	  session[:user_id] = nil
 	  redirect_to root_url, :notice => "Logged out!"
 	end
+
+	private
+	  def correct_user
+	    redirect_to("/") unless !current_user
+	  end
 end

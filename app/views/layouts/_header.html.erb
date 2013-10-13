@@ -8,15 +8,16 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" style="padding:4px;margin-top:auto;margin-bottom:auto;" href="<%= root_path %>">
-        <h4>SGS - AEISCTE</h4>
+        <img src="/aeiscte.gif" alt="AEISCTE-IUL" class="logo-login" style="max-height:40px;">
       </a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-      <% if current_user %>
-      <ul class="nav navbar-nav">
-        <li><%= link_to current_user.username, "#" %></li>
+      <ul class="nav navbar-nav" id="header_copy">
+          <li><a class="tagline" >Sistema de Gestão de Sócios</a></li>
+          <% if current_user %>
+            <li><a class="tagline" ><small>Login as <%= current_user.username %></small></a></li>
+          <% end %>
       </ul>
-      <% end %>
       
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>

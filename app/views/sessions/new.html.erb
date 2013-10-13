@@ -1,9 +1,12 @@
 
 <%= form_tag({:controller => 'sessions'}, {:class => 'form-signin'}) do %>
-  <h2 class="form-signin-heading">Please log in</h2>
+
+	<img src="/aeiscte.gif" alt="AEISCTE-IUL" class="logo-login" >
+
+    <h3 class="form-signin-heading">Please log in</h3>
    
     <%= text_field_tag :username, params[:username], :class => "form-control", :placeholder => "username", :autofocus => true %>
-    <%= password_field_tag :password, params[:password], :class => "form-control" %>
+    <%= password_field_tag :password, params[:password], :class => "form-control", :placeholder => "password" %>
   
-  	<%= submit_tag "Log in", :class => 'btn btn-lg btn-primary btn-block' %>
+  	<%= submit_tag "Log in", :class => 'btn btn-primary btn-block' %>
 <% end %>
