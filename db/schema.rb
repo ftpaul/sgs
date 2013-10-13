@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131013183325) do
+ActiveRecord::Schema.define(:version => 20131013184414) do
 
   create_table "ano_lectivos", :force => true do |t|
     t.string   "ano_lectivo"
@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(:version => 20131013183325) do
 
   create_table "cursos", :force => true do |t|
     t.string   "designacao"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "abreviatura"
   end
 
   create_table "socios", :force => true do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20131013183325) do
     t.boolean  "permite_sms"
     t.boolean  "estado_civil"
     t.integer  "num_univercidade"
+    t.string   "sexo"
   end
 
   create_table "users", :force => true do |t|

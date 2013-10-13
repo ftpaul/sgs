@@ -21,11 +21,12 @@
 #  permite_sms      :boolean
 #  estado_civil     :boolean
 #  num_univercidade :integer
+#  sexo             :string(255)
 #
 
 class Socio < ActiveRecord::Base
   attr_accessible :bi, :cod_postal, :email, :permite_sms, :foto, :localidade, :morada, :nascimento, :permite_email, 
-              :nome, :num_aluno, :telemovel, :curso_id, :ano_lectivo_id
+              :nome, :num_aluno, :telemovel, :curso_id, :ano_lectivo_id, :num_univercidade, :sexo
 
   has_one :curso
   has_one :ano_lectivo
@@ -39,10 +40,14 @@ class Socio < ActiveRecord::Base
   validates :email, presence: true
 
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      socio = find_by_id(row["nAluno"]) || new
-      socio.attributes = row.to_hash.slice(*accessible_attributes)
-      socio.num_aluno = row["nAluno"]
+    #file=File.open("input_file", "r:ISO-8859-1")
+      handler = open(file.path)
+csv_string = handler.read.encode!("UTF-8", "iso-8859-1", invalid: :replace)
+CSV.parse(csv_string, headers: true) do |row|
+
+   # CSV.foreach(file.path, enconding: "iso-8859-1:UTF-8") do |row|
+      socio = Socio.new
+      socio.num_aluno = row["nAluno"].to_s
       socio.ano_lectivo_id = 1
       socio.curso_id = row["curso_id"]
       #socio.foto.store!(File.open(File.join("http://127.0.0.1:3000/uploads/socio/foto/#{row["foto"]}")))

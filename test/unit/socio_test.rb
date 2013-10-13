@@ -21,6 +21,7 @@
 #  permite_sms      :boolean
 #  estado_civil     :boolean
 #  num_univercidade :integer
+#  sexo             :string(255)
 #
 
 require 'test_helper'
