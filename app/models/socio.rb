@@ -43,8 +43,8 @@ class Socio < ActiveRecord::Base
       socio.attributes = row.to_hash.slice(*accessible_attributes)
       socio.num_aluno = row["nAluno"]
       socio.ano_lectivo_id = 1
-      socio.curso_id = row["curso"]
-      socio.foto.store!(File.open(File.join("http://127.0.0.1:3000/uploads/socio/foto/#{row["foto"]}")))
+      socio.curso_id = row["curso_id"]
+      #socio.foto.store!(File.open(File.join("http://127.0.0.1:3000/uploads/socio/foto/#{row["foto"]}")))
       socio.save!
     end
   end
